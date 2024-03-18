@@ -17,4 +17,14 @@ class TeamsController < ApplicationController
     @team = Team.find_by(id: params[:id])
     render :show
   end
+
+  def update
+    @team = Team.find_by(id: params[:id])
+    @team.update(
+      year: params[:year] || @team.year,
+      image: params[:image] || @team.image,
+      information: params[:information] || @team.information,
+    )
+    render :show
+  end
 end
