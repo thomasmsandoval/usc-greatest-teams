@@ -27,4 +27,10 @@ class TeamsController < ApplicationController
     )
     render :show
   end
+
+  def destroy
+    @team = Team.find_by(id: params[:id])
+    @team.destroy
+    rendor json: { message: "Team deleted succesfully!" }
+  end
 end
